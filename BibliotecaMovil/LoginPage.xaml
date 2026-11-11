@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BibliotecaMovil.LoginPage"
+             Title="Acceso al Sistema"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid RowDefinitions="*">
+        <!-- Actividad 5: AbsoluteLayout para Franja Visual Decorativa -->
+        <AbsoluteLayout VerticalOptions="Start">
+            <BoxView AbsoluteLayout.LayoutBounds="0,0,1,220"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"
+                     Color="{StaticResource PrimaryColor}" />
+            <BoxView AbsoluteLayout.LayoutBounds="0,210,1,10"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"
+                     Color="{StaticResource PrimaryDark}" Opacity="0.4" />
+        </AbsoluteLayout>
+
+        <!-- Contenido principal centrado con ScrollView y VerticalStackLayout (Actividad 1) -->
+        <ScrollView VerticalOptions="Center">
+            <VerticalStackLayout Spacing="24" Padding="20" MaximumWidthRequest="440" HorizontalOptions="Center">
+
+                <!-- Encabezado Institucional -->
+                <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                    <Border BackgroundColor="#312E81" StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="12,4" HorizontalOptions="Center">
+                        <Label Text="UTSJR • Jalpan" FontSize="11" TextColor="#A5B4FC" FontAttributes="Bold"/>
+                    </Border>
+                    <Label Text="Biblioteca Móvil" FontSize="30" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Gestión Integral de Libros y Préstamos" FontSize="13" TextColor="#E0E7FF" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <!-- Tarjeta de Inicio de Sesión -->
+                <Border Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="18">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Iniciar Sesión" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}" HorizontalOptions="Center"/>
+                            <Label Text="Ingresa tus credenciales institucionales" FontSize="12" TextColor="{StaticResource TextSecondary}" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                        <!-- Campo Usuario -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Usuario / Correo" FontSize="12" FontAttributes="Bold" TextColor="#334155"/>
+                            <Border Style="{StaticResource InputBorderStyle}">
+                                <Entry x:Name="TxtUsuario" Placeholder="ejemplo@utsjr.edu.mx" TextColor="{StaticResource TextPrimary}" BackgroundColor="Transparent"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Campo Contraseña -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Contraseña" FontSize="12" FontAttributes="Bold" TextColor="#334155"/>
+                            <Border Style="{StaticResource InputBorderStyle}">
+                                <Entry x:Name="TxtPassword" Placeholder="••••••••" IsPassword="True" TextColor="{StaticResource TextPrimary}" BackgroundColor="Transparent"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Botón de Acción -->
+                        <Button Text="Acceder a la Biblioteca" 
+                                Style="{StaticResource BtnPrincipal}" 
+                                Margin="0,6,0,0"
+                                Clicked="OnIngresarClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Pie de página -->
+                <Label Text="Ingeniería en Desarrollo y Gestión de Software" FontSize="11" TextColor="{StaticResource TextSecondary}" HorizontalOptions="Center"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
